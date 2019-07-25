@@ -112,8 +112,8 @@ public class FamilyFragment extends Fragment {
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onPause() {
+        super.onPause();
         releaseMediaPlayer();
     }
 }

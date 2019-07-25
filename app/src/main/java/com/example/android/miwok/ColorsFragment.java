@@ -102,8 +102,8 @@ public class ColorsFragment extends Fragment {
     }
 
     @Override
-    public void onStop() {
-        super.onStop();
+    public void onPause() {
+        super.onPause();
         releaseMediaPlayer();
     }
 }
