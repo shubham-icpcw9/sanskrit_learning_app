@@ -70,6 +70,7 @@ class SimpleFragmentPagerAdapter extends FragmentPagerAdapter {
     @Override
     public CharSequence getPageTitle(int position) {
         if (position == 0) {
+
             return mContext.getString(R.string.category_numbers);
         } else if (position == 1) {
             return mContext.getString(R.string.category_family);
@@ -108,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
         setTitle(getApplicationContext().getString(R.string.main_page));
 
-        startActivity(new Intent(MainActivity.this, Pop.class));
+        startActivity(new Intent(getApplicationContext(), Pop.class));
 
     }
 }

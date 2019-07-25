@@ -30,6 +30,8 @@
         android:layout_gravity="center"
         android:layout_marginBottom="15dp"
         android:layout_weight="1"
-        android:background="@color/tan_background"
-        android:text="@string/popupbtn" />
+        android:background="#0277BD"
+        android:text="@string/popupbtn"
+        android:textStyle="bold"
+        android:foreground="?android:attr/selectableItemBackground"/>
 </LinearLayout>
