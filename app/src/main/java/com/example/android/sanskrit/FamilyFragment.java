@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.sanskrit;
 
 
 import android.content.Context;
@@ -11,16 +11,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class NumbersFragment extends Fragment {
-
-
+public class FamilyFragment extends Fragment {
     private MediaPlayer mediaPlayer;
     private AudioManager audioManager;
 
@@ -41,7 +38,6 @@ public class NumbersFragment extends Fragment {
                 }
             };
 
-
     private MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
@@ -49,38 +45,39 @@ public class NumbersFragment extends Fragment {
         }
     };
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        //releaseMediaPlayer();
         View rootView = inflater.inflate(R.layout.wordlist, container, false);
-        //View rootView = getActivity().findViewById(R.id.list);
-        final ArrayList<Word> words = new ArrayList<Word>();
 
         audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
+        final ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("father", "पिता",
+                R.drawable.family_father, R.raw.family_father));
 
-        words.add(new Word("one", "एकम्",
-                R.drawable.number_one, R.raw.number_one));
-        words.add(new Word("two", "द्वे",
-                R.drawable.number_two, R.raw.number_two));
-        words.add(new Word("three", "त्रयः",
-                R.drawable.number_three, R.raw.number_three));
-        words.add(new Word("four", "चत्वारि",
-                R.drawable.number_four, R.raw.number_four));
-        words.add(new Word("five", "पञ्च",
-                R.drawable.number_five, R.raw.number_five));
-        words.add(new Word("six", "षट्",
-                R.drawable.number_six, R.raw.number_six));
-        words.add(new Word("seven", "सप्त",
-                R.drawable.number_seven, R.raw.number_seven));
-        words.add(new Word("eight", "अष्ट",
-                R.drawable.number_eight, R.raw.number_eight));
-        words.add(new Word("nine", "नव",
-                R.drawable.number_nine, R.raw.number_nine));
-        words.add(new Word("ten", "दश",
-                R.drawable.number_ten, R.raw.number_ten));
 
-        WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_numbers);
+        words.add(new Word("mother", "मातृ",
+                R.drawable.family_mother, R.raw.family_mother));
+        words.add(new Word("son", "पुत्रः",
+                R.drawable.family_son, R.raw.family_son));
+        words.add(new Word("daughter", "पुत्री",
+                R.drawable.family_daughter, R.raw.family_daughter));
+        words.add(new Word("older brother", "ज्येष्ठभ्राता",
+                R.drawable.family_older_brother, R.raw.family_older_brother));
+        words.add(new Word("younger brother", "कनिष्ठभ्राता",
+                R.drawable.family_younger_brother, R.raw.family_younger_brother));
+        words.add(new Word("older sister", "ज्येष्ठभगिनी",
+                R.drawable.family_older_sister, R.raw.family_older_sister));
+        words.add(new Word("younger sister", "कनिष्ठभगिनी",
+                R.drawable.family_younger_sister, R.raw.family_younger_sister));
+        words.add(new Word("grandmother ", "पितामही",
+                R.drawable.family_grandmother, R.raw.family_grandmother));
+        words.add(new Word("grandfather", "पितामहः",
+                R.drawable.family_grandfather, R.raw.family_grandfather));
 
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_family);
 
         ListView listView = rootView.findViewById(R.id.list);
 
@@ -89,7 +86,6 @@ public class NumbersFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 releaseMediaPlayer();
                 Word currWord = words.get(position);
-                //Log.v("NumbersActivity", "Current word: " + currWord);
                 int result = audioManager.requestAudioFocus(onAudioFocusChangeListener,
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
@@ -100,10 +96,10 @@ public class NumbersFragment extends Fragment {
             }
         });
 
+
         listView.setAdapter(itemsAdapter);
 
         return rootView;
-
     }
 
     public void releaseMediaPlayer() {

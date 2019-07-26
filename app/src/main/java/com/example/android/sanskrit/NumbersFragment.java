@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.sanskrit;
 
 
 import android.content.Context;
@@ -11,14 +11,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.example.android.sanskrit.R;
 
 import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PhrasesFragment extends Fragment {
+public class NumbersFragment extends Fragment {
 
 
     private MediaPlayer mediaPlayer;
@@ -41,6 +42,7 @@ public class PhrasesFragment extends Fragment {
                 }
             };
 
+
     private MediaPlayer.OnCompletionListener completionListener = new MediaPlayer.OnCompletionListener() {
         @Override
         public void onCompletion(MediaPlayer mp) {
@@ -48,37 +50,38 @@ public class PhrasesFragment extends Fragment {
         }
     };
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //releaseMediaPlayer();
         View rootView = inflater.inflate(R.layout.wordlist, container, false);
+        //View rootView = getActivity().findViewById(R.id.list);
+        final ArrayList<Word> words = new ArrayList<Word>();
+
         audioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
-        final ArrayList<Word> words = new ArrayList<Word>();
-        words.add(new Word("Where are you going?", "भवान् कुत्र गच्छति ?",
-                R.raw.p1));
-        words.add(new Word("What is your name?", "तव नाम किम् ?",
-                R.raw.p2));
-        words.add(new Word("My name is...", "मम नाम ...",
-                R.raw.p3));
-        words.add(new Word("Good morning. How do you do?",
-                "नमस्कारः, कुशलम् किम्?", R.raw.p4));
-        words.add(new Word("How is this girl?", "कीदृशी इयं बाला ?",
-                R.raw.p5));
-        words.add(new Word("Let's have coffee.", "काफी पिबाम",
-                R.raw.p6));
-        words.add(new Word("Let us listen to the song.", "गीतं शृणवाम",
-                R.raw.p7));
-        words.add(new Word("I will let you know.", "अहं पुनः सूचयामि",
-                R.raw.p8));
-        words.add(new Word("You are my friend.", "त्वम् मम मित्रम्",
-                R.raw.p9));
-        words.add(new Word("Come on, let's play.", "आगच्छतु भोः, क्रीडामः",
-                R.raw.p10));
+        words.add(new Word("one", "एकम्",
+                R.drawable.number_one, R.raw.number_one));
+        words.add(new Word("two", "द्वे",
+                R.drawable.number_two, R.raw.number_two));
+        words.add(new Word("three", "त्रयः",
+                R.drawable.number_three, R.raw.number_three));
+        words.add(new Word("four", "चत्वारि",
+                R.drawable.number_four, R.raw.number_four));
+        words.add(new Word("five", "पञ्च",
+                R.drawable.number_five, R.raw.number_five));
+        words.add(new Word("six", "षट्",
+                R.drawable.number_six, R.raw.number_six));
+        words.add(new Word("seven", "सप्त",
+                R.drawable.number_seven, R.raw.number_seven));
+        words.add(new Word("eight", "अष्ट",
+                R.drawable.number_eight, R.raw.number_eight));
+        words.add(new Word("nine", "नव",
+                R.drawable.number_nine, R.raw.number_nine));
+        words.add(new Word("ten", "दश",
+                R.drawable.number_ten, R.raw.number_ten));
 
-        WordAdapter adapter = new WordAdapter(getActivity(), words, R.color.category_phrases);
+        WordAdapter itemsAdapter = new WordAdapter(getActivity(), words, R.color.category_numbers);
+
 
         ListView listView = rootView.findViewById(R.id.list);
 
@@ -87,6 +90,7 @@ public class PhrasesFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 releaseMediaPlayer();
                 Word currWord = words.get(position);
+                //Log.v("NumbersActivity", "Current word: " + currWord);
                 int result = audioManager.requestAudioFocus(onAudioFocusChangeListener,
                         AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
                 if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
@@ -97,10 +101,10 @@ public class PhrasesFragment extends Fragment {
             }
         });
 
-
-        listView.setAdapter(adapter);
+        listView.setAdapter(itemsAdapter);
 
         return rootView;
+
     }
 
     public void releaseMediaPlayer() {

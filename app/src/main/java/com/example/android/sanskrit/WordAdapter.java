@@ -1,4 +1,4 @@
-package com.example.android.miwok;
+package com.example.android.sanskrit;
 
 import android.content.Context;
 import android.support.v4.content.ContextCompat;
