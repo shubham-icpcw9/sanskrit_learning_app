@@ -3,7 +3,7 @@ Sanskrit App
 
 As we all know that Sanskrit has been listed in one of the Endangered language.
 So we Indian will not allow to happen this.
-so I created an Android Application that teaches anyone a Sanskrit.
+so I created an Android Application that teaches anyone a Sanskrit..
 
 Pre-requisites
 --------------
