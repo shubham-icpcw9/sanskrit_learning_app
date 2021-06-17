@@ -1,15 +1,14 @@
 Sanskrit App
 ===================================
-1. Built an android Application that can teach anyone an endangered
-listed language Sanskrit.
+• Built an Android Application that can teach anyone an endangered listed
+  language i.e Sanskrit.
+  
+• Implemented Audio playback for correct pronunciation of Sanskrit phrases.
 
-2. Implemented Audio playback for correct pronunciation of sanskrit
-phrases.
+• Conceptualized and implemented fragments for a smoother user experience.
 
-3. Conceptualized and implemented fragments for smoother user
-experience.
-
-4. Optimized the app memory by using ListView and ArrayAdapter to display the list of sanskrit words.
+• Created dynamic lists with RecyclerView to display large sets of Sanskrit
+  words, thus improved my app responsiveness.
 
 Pre-requisites
 --------------
