@@ -7,8 +7,7 @@ Sanskrit App
 
 • Conceptualized and implemented fragments for a smoother user experience.
 
-• Created dynamic lists with RecyclerView to display large sets of Sanskrit
-  words, thus improved my app responsiveness.
+• Created dynamic lists with RecyclerView to display large sets of Sanskrit words, thus improved my app responsiveness.
 
 Pre-requisites
 --------------
