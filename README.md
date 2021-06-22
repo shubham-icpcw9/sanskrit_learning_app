@@ -1,4 +1,4 @@
-Sanskrit App
+SanskritApp
 ===================================
 • Built an Android Application that can teach anyone an endangered listed
   language i.e Sanskrit.
